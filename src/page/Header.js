@@ -1,7 +1,10 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import styled from "styled-components";
+import { Link } from 'react-scroll';
+
 import Logo from "../images/awesomeLogo.png";
+
 
 const NavWrapper = styled.div`
   display: flex;
@@ -68,14 +71,24 @@ function Header(props) {
   return (
     <>
     <NavWrapper>
-      <div>
-        <img className='logo-item' onClick={() => navigate("/")} src={Logo} />
-      </div>
+      <Link to="1" spy={true} smooth={true}>
+        <div>
+          <img className='logo-item' src={Logo} />
+        </div>
+      </Link>
       <ul className='nav'>
-        <li className='active' onClick={() => navigate("/")}>HOME</li>
-        <li >거래소</li>
-        <li >Wallet</li>
-        <li >Notice</li>
+        <Link to="1" spy={true} smooth={true}>
+          <li className='active'>HOME</li>
+        </Link>
+        <Link to="2" spy={true} smooth={true}>
+          <li >거래소</li>
+        </Link>
+        <Link to="3" spy={true} smooth={true}>
+          <li >Wallet</li>
+        </Link>
+        <Link to="4" spy={true} smooth={true}>
+          <li >Notice</li>
+        </Link>
         <a className='nav-item' onClick={() => navigate("/login")}>Sign In</a>
       </ul>
     </NavWrapper>

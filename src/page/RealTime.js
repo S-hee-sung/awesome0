@@ -3,14 +3,22 @@ import styled from "styled-components";
 
 const ChatWrapper = styled.div`
 	background-color: #fff;
-	height: 100vh;
-	width: 100wh;
+	width: 100%;
+	height: 100%;
+
+	.wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 `;
 
 function RealTime() {
 	return (  
 		<ChatWrapper>
-			<div>RealTime</div>
+			<div className="wrapper">
+				RealTime
+			</div>
 		</ChatWrapper>
 	);
 }

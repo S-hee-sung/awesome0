@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
 import intro1Video from "./coin1.mp4";
+import { useNavigate } from 'react-router-dom';
 // import intro2Video from "./video/coin2.mp4";
 
 const VideoWrapper = styled.div`
 	background-color: #000;
+	height: 100vh;
+	width: 100%;
 
 	.video-wrap {
 		position: relative;
@@ -63,6 +66,8 @@ const VideoWrapper = styled.div`
 
 
 function Video(props) {
+	const navigate = useNavigate();
+
   return (
     <VideoWrapper>
 			<div className='video-wrap'>
@@ -74,7 +79,7 @@ function Video(props) {
 				<p>안전하고 투명한 시스템으로 바르고 편리한 거래 환경을 제공합니다.</p>
 				<div className='btn-wrap'>
 					<a className='btn' href="#">거래 확인하기</a>
-					<a className='btn ghost-btn' href="#">가입하기</a>
+					<a className='btn ghost-btn' href="#" onClick={() => navigate("/login")}>가입하기</a>
 				</div>
 			</div>
 		</VideoWrapper>
