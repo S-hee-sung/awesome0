@@ -11,8 +11,10 @@ const NavWrapper = styled.div`
   z-index: 99;
   position: fixed;
   background-color: transparent;
-  cursor: pointer;
   width: 100%;
+  cursor: pointer;
+  max-width: 2000px;
+  margin: 0 auto;
 
   .logo-item {
     width: 150px;
@@ -25,6 +27,7 @@ const NavWrapper = styled.div`
     justify-content: space-around;
     align-items: center;
     list-style: none;
+    margin-right: 18px;
   }
   .nav li {
     text-decoration: none;
@@ -42,18 +45,18 @@ const NavWrapper = styled.div`
   }
   .nav-item {
     text-decoration: none;
-    /* color: #fff; */
-    background: #359381;
+    color: #359381;
+    background: #fff;
     border: 1px solid #359381;
     padding: 6px 15px;
     border-radius: 20px;
-    margin-left: 100px;
     font-weight: 600;
     font-size: 1rem;
   }
   .nav-item:hover {
-    background: #fff;
-    color: #359381;
+    background: #359381;
+    color: #fff;
+    padding: 12px 15px;
   }
 `;
 
@@ -73,7 +76,7 @@ function Header(props) {
         <li >거래소</li>
         <li >Wallet</li>
         <li >Notice</li>
-        <li className='nav-item' onClick={() => navigate("/login")}>Sign In</li>
+        <a className='nav-item' onClick={() => navigate("/login")}>Sign In</a>
       </ul>
     </NavWrapper>
     <Outlet />
