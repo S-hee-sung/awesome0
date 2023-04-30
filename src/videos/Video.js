@@ -62,13 +62,17 @@ const VideoWrapper = styled.div`
 		border: 1px solid #004fff;
 		margin-left: 20px;
 	}
+	.btn:hover {
+		color: #004fff;
+		background-color: #fff;
+	}
 `;
 
 
 function Video(props) {
 	const navigate = useNavigate();
 
-  return (
+	return (
     <VideoWrapper>
 			<div className='video-wrap'>
 				<video autoPlay loop muted src={intro1Video} />

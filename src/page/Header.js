@@ -73,12 +73,12 @@ function Header(props) {
     <NavWrapper>
       <Link to="1" spy={true} smooth={true}>
         <div>
-          <img className='logo-item' src={Logo} />
+          <img className='logo-item' onClick={() => navigate("/")} src={Logo} />
         </div>
       </Link>
       <ul className='nav'>
         <Link to="1" spy={true} smooth={true}>
-          <li className='active'>HOME</li>
+          <li className='active' onClick={() => navigate("/")} >HOME</li>
         </Link>
         <Link to="2" spy={true} smooth={true}>
           <li >거래소</li>

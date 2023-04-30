@@ -12,7 +12,7 @@ const Sec1 = styled.div`
 
   color: blue;
   font-size: 36px;
-  background: #333;
+  background: #fff;
 `;
 const Sec2 = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const Sec2 = styled.div`
 
   color: blue;
   font-size: 36px;
-  background: #ccc;
+  background: #c7c7c7;
 `;
 const Sec3 = styled.div`
   width: 100%;
