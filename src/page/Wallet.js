@@ -1,9 +1,9 @@
+import React from 'react';
 import styled from "styled-components";
-import realImg from "../images/realTime2.png";
+import WalletImg from "../images/walletImg.png";
 
-
-const ChatWrapper = styled.div`
-	background-color: #fff;
+const WalletWrapper = styled.div`
+	background-color: #dcdcdc;
 	width: 100vw;
 	height: 100vh;
 	max-width: 1200px;
@@ -16,14 +16,14 @@ const ChatWrapper = styled.div`
 		align-items: center;
 		height: 100vh;
 	}
-	.real {
-		width: 300px;
+	.wallet-img {
+		width: 500px;
 		height: 500px;
 	}
 `;
 
 const TextBox = styled.div`
-	margin-left: 150px;
+	margin-right: 150px;
 
 	h2 {
 		font-size : 36px;
@@ -54,21 +54,21 @@ const TextBox = styled.div`
 	}
 `;
 
-function RealTime() {
-	return (  
-		<ChatWrapper>
+function Wallet(props) {
+	return (
+		<WalletWrapper>
 			<div className="wrapper">
-				<div>
-					<img src={realImg} className="real" />
-				</div>
 				<TextBox>
-					<h2>빠르고 간편한 <br/> 실시간 시세 간편 확인</h2>
-					<h4>실시간 시세 확인부터 <br />주문까지 빠른 디지털 자산 거래소를 만나보세요.</h4>
-					<button className="realTimeBtn">실시간 시세 확인하기</button>
+					<h2>손쉬운 계좌 개설, 간편한 주문 <br /> 지갑연동 시스템</h2>
+					<h4>인증서, OTP 없이 계좌 개설이 간편합니다.<br />여러 건의 주문도 몇 번의 터치로 손쉽게 할 수 있습니다.</h4>
+					<button className="realTimeBtn">지갑 연동하기</button>
 				</TextBox>
+				<div>
+					<img src={WalletImg} className="wallet-img" />
+				</div>
 			</div>
-		</ChatWrapper>
+		</WalletWrapper>
 	);
 }
 
-export default RealTime;
+export default Wallet;

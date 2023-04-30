@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useNavigate } from 'react-router';
 import { IoEyeOff, IoEye } from "react-icons/io5";
 
+import LoginBack from "../images/login-back.jpg";
+
 const User = {
   email: 'test@example.com',
   pw: 'test2323@@@'
@@ -16,6 +18,9 @@ const LoginWrapper = styled.div`
 
   width: 100%;
   padding: 140px 0;
+  background-image: url(${LoginBack});
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .inner {
     max-width: 800px;
@@ -25,13 +30,12 @@ const LoginWrapper = styled.div`
     align-items: center;
     padding: 50px 0;
 
-    background-color: #f7f7f7;
   }
 
   .titleWrap {
     font-size: 26px;
     font-weight: 700;
-    color: #262626;
+    color: #fff;
     cursor: pointer;
   }
   .contentWrap {
@@ -43,7 +47,7 @@ const LoginWrapper = styled.div`
   .inputTitle {
     font-size: 12px;
     font-weight: 600;
-    color: #262626;
+    color: #fff;
   }
   .inputWrap {
     display: flex;
@@ -99,7 +103,7 @@ const LoginWrapper = styled.div`
       height: 100%;
       cursor: pointer;
       font-size: 12px;
-      color: #666;
+      color: #fff;
       margin: 10px 0;
       gap: 10px;
       list-style: none;

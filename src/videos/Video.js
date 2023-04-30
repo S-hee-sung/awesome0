@@ -40,13 +40,13 @@ const VideoWrapper = styled.div`
 		color: #fff;
 		font-size: 24px;
 		line-height: 30px;
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 	}
 	.text-wrap p {
 		color: #fff;
 		font-size: 16px;
 		line-height: 1.8;
-		margin-bottom: 40px;
+		margin-bottom: 30px;
 	} 
 
 	.btn {
@@ -78,7 +78,7 @@ function Video(props) {
 				<video autoPlay loop muted src={intro1Video} />
 			</div>
 			<div className='text-wrap'>
-				<h2>We <br />move life</h2>
+				<h2>We move life</h2>
 				<h3>신뢰받는 글로벌 디지털 거래소 </h3>
 				<p>안전하고 투명한 시스템으로 바르고 편리한 거래 환경을 제공합니다.</p>
 				<div className='btn-wrap'>

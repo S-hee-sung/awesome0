@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Video from '../videos/Video';
 import RealTime from './RealTime';
+import Wallet from './Wallet';
 
 const Sec1 = styled.div`
   width: 100vw;
@@ -23,7 +24,7 @@ const Sec2 = styled.div`
 
   color: blue;
   font-size: 36px;
-  background: #c7c7c7;
+  background: #dcdcdc;
 `;
 const Sec3 = styled.div`
   width: 100%;
@@ -48,7 +49,9 @@ function Main(props) {
       <Sec1 id='2'>
         <RealTime />
       </Sec1>
-      <Sec2 id='3'></Sec2>
+      <Sec2 id='3'>
+        <Wallet />
+      </Sec2>
       <Sec3 id='4'></Sec3>
     </>
   );
