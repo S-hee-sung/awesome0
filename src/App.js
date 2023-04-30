@@ -5,6 +5,7 @@ import reset from "styled-reset";
 import Header from './page/Header';
 import Login from "./login/Login";
 import Main from "./page/Main";
+import SignUp from "./login/SignUp";
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -41,7 +42,9 @@ function App() {
           <Route index element={<Main />} /> 
 
         </Route>
-          <Route path="/login" element={<Login />} /> 
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+
       </Routes>
       
       

@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
+
 import Video from '../videos/Video';
 import RealTime from './RealTime';
 import Wallet from './Wallet';
+import UniverseImg from "../images/universe.png";
 
 const Sec1 = styled.div`
   width: 100vw;
@@ -13,7 +15,10 @@ const Sec1 = styled.div`
 
   color: blue;
   font-size: 36px;
-  background: #fff;
+  background-image: url(${UniverseImg});
+	background-repeat: no-repeat;
+	background-size: cover;
+
 `;
 const Sec2 = styled.div`
   width: 100%;

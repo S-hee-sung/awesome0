@@ -30,7 +30,7 @@ const VideoWrapper = styled.div`
 		z-index:1;
 	}
 	.text-wrap h2 {
-		color: #fff;
+		color: #004fff;
 		font-size: 64px;
 		line-height: 80px;
 		font-weight: lighter;
@@ -82,12 +82,12 @@ function Video(props) {
 				<h3>신뢰받는 글로벌 디지털 거래소 </h3>
 				<p>안전하고 투명한 시스템으로 바르고 편리한 거래 환경을 제공합니다.</p>
 				<div className='btn-wrap'>
-					<a className='btn' href="#">거래 확인하기</a>
-					<a className='btn ghost-btn' href="#" onClick={() => navigate("/login")}>가입하기</a>
+					<a className='btn' href="#" >거래 확인하기</a>
+					<a className='btn ghost-btn' href="#" onClick={() => navigate("/signUp")}>가입하기</a>
 				</div>
 			</div>
 		</VideoWrapper>
-  );
+	);
 }
 
 export default Video;

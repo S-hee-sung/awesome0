@@ -2,8 +2,9 @@ import styled from "styled-components";
 import realImg from "../images/realTime2.png";
 
 
+
 const ChatWrapper = styled.div`
-	background-color: #fff;
+
 	width: 100vw;
 	height: 100vh;
 	max-width: 1200px;

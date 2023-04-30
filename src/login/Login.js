@@ -239,7 +239,7 @@ function Login(props) {
 
           <div className='joinFindWrap'>
             <ul>
-              <li>
+              <li onClick={() => navigate("/signUp")}>
                 회원가입
               </li>
               <li>
