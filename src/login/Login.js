@@ -29,7 +29,6 @@ const LoginWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 50px 0;
-
   }
 
   .titleWrap {
