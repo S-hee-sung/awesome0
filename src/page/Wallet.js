@@ -63,7 +63,7 @@ function Wallet(props) {
 					<Slide>
 						<h2>손쉬운 계좌 개설, 간편한 주문 <br /> 지갑연동 시스템</h2>
 					</Slide>
-					<Fade delay={1000} cascade damping={0.1}>
+					<Fade delay={500} cascade damping={0.1}>
 						<h4>인증서, OTP 없이 계좌 개설이 간편합니다.<br />여러 건의 주문도 몇 번의 터치로 손쉽게 할 수 있습니다.</h4>
 					</Fade>
 					<button className="realTimeBtn">지갑 연동하기</button>

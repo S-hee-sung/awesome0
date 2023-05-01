@@ -79,13 +79,13 @@ function Video(props) {
 				<video autoPlay loop muted src={intro1Video} />
 			</div>
 			<div className='text-wrap'>
-				<Slide>
+				<Slide direction='right'>
 					<h2>We move life</h2>
 				</Slide>
-				<Fade delay={1000} cascade damping={0.1}>
+				<Fade delay={500} cascade damping={0.1}>
 					<h3>신뢰받는 글로벌 디지털 거래소 </h3>
-				</Fade>
-				<Fade delay={2000} cascade damping={0.1}>
+					</Fade>	
+				<Fade delay={1000} cascade damping={0.1}>
 					<p>안전하고 투명한 시스템으로 바르고 편리한 거래 환경을 제공합니다.</p>
 				</Fade>	
 				<div className='btn-wrap'>

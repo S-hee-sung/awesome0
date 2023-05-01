@@ -69,7 +69,7 @@ function RealTime() {
 					<Slide direction="right">
 						<h2>빠르고 간편한 <br/> 실시간 시세 간편 확인</h2>
 					</Slide>
-					<Fade delay={1000} cascade damping={0.1}>
+					<Fade delay={500} cascade damping={0.1}>
 						<h4>실시간 시세 확인부터 <br />주문까지 빠른 디지털 자산 거래소를 만나보세요.</h4>
 					</Fade>
 					<button className="realTimeBtn">실시간 시세 확인하기</button>
