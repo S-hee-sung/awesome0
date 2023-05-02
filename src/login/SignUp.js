@@ -37,7 +37,6 @@ const SignUpWrapper = styled.div`
   }
   .inputWrap {
     display: flex;
-    border-radius: 8px;
     padding: 8px;
     margin-top: 8px;
     background-color: white;
@@ -78,6 +77,87 @@ const SignUpWrapper = styled.div`
     margin:10px 0;
     color: #ef0000;
     font-size: 12px;
+  }
+`;
+
+const NameCenter = styled.div`
+  display: flex;
+  width: 100%;
+
+  .ReNameWrap {
+    display: flex;
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+  }
+
+  .gender {
+    display: flex;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+    margin-left: 10px;
+  }
+`;
+
+const BrithCenter = styled.div`
+  display: flex;
+  width: 100%;
+
+  .birth-year {
+    display: flex;
+    width:100%;
+    padding: 10px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+  }
+  .birth-month {
+    display: flex;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+    margin-left: 10px;
+  }
+  .birth-day {
+    display: flex;
+    padding: 10px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+    margin-left: 10px;
+  }
+`;
+
+const PhoneGroup = styled.div`
+  
+  .input-group + .input-group {
+      margin-top: 40px;
+  }
+  .input-group-row {
+    position: relative;
+  }
+  .input-group-row + .input-group-row {
+    margin-top: 10px;
+  }
+  input, select {
+    width: 100%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+
+    /* Tip! 커서 속성을 포인터로 */
+    /* w3school에서 다양한 속성 값 확인해보기! */
+    cursor: pointer;
+  }
+  input:focus, select:focus {
+    border: 1px solid #03c75a;
   }
 `;
 
@@ -132,9 +212,9 @@ function SignUp(props) {
 				</div>
 				
 				<div className='contentWrap'>
-					{/* <div className='nameWrap'>
+					<div className='nameWrap'>
 						이메일
-					</div> */}
+					</div>
 					<div className='inputWrap'>
 						<input
 							type='text'
@@ -152,9 +232,9 @@ function SignUp(props) {
             }
 					</div>
 
-					{/* <div className='nameWrap'>
+					<div className='nameWrap'>
 						비밀번호
-					</div> */}
+					</div>
 					<div className='inputWrap'>
 						<input
 							type='password'
@@ -172,9 +252,9 @@ function SignUp(props) {
 						}
 					</div>
 
-					{/* <div className='nameWrap'>
+					<div className='nameWrap'>
 						비밀번호 재확인
-					</div> */}
+					</div>
 					<div className='inputWrap' style={{ marginBottom: '12px' }}>
 						<input
 							type='password'
@@ -192,19 +272,71 @@ function SignUp(props) {
 						}
 					</div>
 
-					{/* <div className='nameWrap'>
+					<div className='nameWrap'>
             이름
-          </div> */}
-          <div className='inputWrap'>
-            <input
-              type='text'
-              className='input'
-              placeholder='이름 입력'
-              value={reName}
-              onChange={handleReplaceName}
-            />
           </div>
-					
+          <NameCenter> 
+            <div className='ReNameWrap'>
+              <input
+                type='text'
+                className='input'
+                placeholder='이름 입력'
+                value={reName}
+                onChange={handleReplaceName}
+              />
+            </div>
+            <select className='gender'>
+              <option value="" selected>성별</option>
+              <option value="M">남자</option>
+              <option value="F">여자</option>
+            </select>
+          </NameCenter>
+
+          <div className='nameWrap' style={{ marginTop: '12px' }}>
+            생년월일
+          </div>
+          <BrithCenter> 
+            <input className='birth-year' type="text" placeholder="년(4자)" />
+            <select className="birth-month" >
+              <option value="" selected>월</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <input className='birth-day' type="text" id="dd" name="dd" placeholder="일"  />
+          </BrithCenter>
+          
+					<div className="input-group">
+            <div className='nameWrap'>
+              휴대전화
+            </div>
+            <div className="input-group-row">
+              <select>
+                <option value="233">가나 +233</option>
+                <option value="241">가봉 +241</option>
+                <option value="82" selected>대한민국 +82</option>
+                <option value="852">홍콩 +852</option>
+              </select>
+            </div>
+            <div className="input-group-row">
+              <input type="tel" id="phoneNo" name="phoneNo" placeholder="전화번호 입력" />
+              <button type="button" class="btn-primary btn-verify">인증번호 받기</button>
+            </div>
+            <div className="input-group-row">
+              <input type="number" id="authNo" name="authNo" placeholder="인증번호 입력하세요" maxlength="4" disabled />
+            </div>
+          </div>
+
+
 					<div >
 						<button className='bottomButton'>
 							회원가입
