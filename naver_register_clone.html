@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네이버 : 회원가입</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      outline: none;
+      list-style: none;
+    }
+
+    body {
+      font-family: Dotum, '돋움', Helvetica, sans-serif;
+      background: #f5f6f7;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    button {
+      /* Tip! 커서 속성을 포인터로 */
+      cursor: pointer;
+    }
+
+    #header {
+      width: 100%;
+      /* background-color: orange; */
+    }
+    .top {
+      max-width: 768px;
+      height: 124px;
+      margin: 0 auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .top > h1 {
+      padding-top: 40px;
+    }
+    .top .logo > img {
+      width: 250px;
+      height: 46px;
+    }
+
+    #container {
+      max-width: 768px;
+      height: 996px;
+      /* background-color: cornflowerblue; */
+      margin: 0 auto;
+    }
+    .section-input {  
+      width: 460px;
+      margin: 0 auto;
+    }
+    .input-group + .input-group {
+      margin-top: 40px;
+    }
+    .input-group-row {
+      position: relative;
+    }
+    .input-group-row + .input-group-row {
+      margin-top: 10px;
+    }
+    .label-margin {
+      margin: 19px 0 8px;
+    }
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    input, select {
+      width: 100%;
+      height: 51px;
+      border: solid 1px #dadada;
+      padding: 10px 14px 10px 14px;
+
+      /* Tip! 커서 속성을 포인터로 */
+      /* w3school에서 다양한 속성 값 확인해보기! */
+      cursor: pointer;
+    }
+    input:focus, select:focus {
+      border: 1px solid #03c75a;
+    }
+    .id-url {
+      position: absolute;
+      top: 19px;
+      right: 13px;
+      font-size: 15px;
+      color: #8e8e8e;
+    }
+    .birth-year, .birth-month, .birth-date {
+      width: 149px; 
+    }
+    .btn-primary {
+      background: #03c75a;
+      color: white;
+      height: 50px;
+      border: none;
+      font-weight: 700;
+    }
+    .btn-verify {
+      width: 115px;
+      margin-left: 4px;
+    }
+    .btn-join {
+      width: 100%;
+      margin: 30px 0 9px;
+    }
+
+    #footer {
+      width: 100%;
+      /* background-color: cadetblue; */
+    }
+    #footer * {
+      font-size: 12px;
+      color: #333;
+    }
+    .bottom {
+      max-width: 768px;
+      height: 83px;
+      margin: 0 auto;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .bt-menu > ul {
+      display: flex;
+      margin-bottom: 9px;
+    }
+    .bt-menu > ul > li > a:hover {
+      font-weight: bold;
+    }
+
+    /* Tip! 포커스 시 사라지는 힌트 */
+    input.placeholder-hidden:focus::placeholder {
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <!-- 헤더 영역 -->
+  <div id="header">
+    <div class="top">
+      <!-- h1(로고를 강조 의미) 또는 div를 사용해도 상관없음 -->
+      <h1>
+        <a href="#" class="logo">
+          <img src="https://ssl.pstatic.net/static/nid/join/m_logo_naver.png" alt="네이버 로고">
+        </a>
+      </h1>
+    </div>
+  </div>
+
+  <!-- 메인 영역 -->
+  <div id="container">
+    <!-- input 영역 -->
+    <div class="section-input">
+      <!-- input 들을 그룹으로 묶음: 첫번째 그룹 -->
+      <div class="input-group">
+        <div class="label-margin">
+          <label for="id">아이디</label>
+        </div>
+        <!-- input 그룹 내 한 줄을 묶음 -->
+        <div class="input-group-row">
+          <input type="text" id="id" name="id">
+          <span class="id-url">@naver.com</span>
+        </div>
+        <div class="label-margin">
+          <label for="pswd1">비밀번호</label>
+        </div>
+        <input type="password" id="pswd1" name="pswd1">
+        <div class="label-margin">
+          <label for="pswd2">비밀번호 재확인</label>
+        </div>
+        <input type="password" id="pswd2" name="pswd2">
+      </div>
+
+      <!-- input 들을 그룹으로 묶음: 두번째 그룹 -->
+      <div class="input-group">
+        <div class="label-margin">
+          <label for="name">이름</label>
+        </div>
+        <input type="text" id="name" name="name">
+        <div class="label-margin">
+          <label for="yy">생년월일</label>
+        </div>
+        <input type="text" id="yy" name="yy" placeholder="년(4자)" class="birth-year placeholder-hidden">
+        <select name="mm" id="mm" class="birth-month">
+          <option value="" selected>월</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <input type="text" id="dd" name="dd" placeholder="일" class="birth-date placeholder-hidden">
+        <div class="label-margin">
+          <label for="gender">성별</label>
+        </div>
+        <select name="gender" id="gender">
+          <option value="" selected>성별</option>
+          <option value="M">남자</option>
+          <option value="F">여자</option>
+          <option value="U">선택 안함</option>
+        </select>
+        <div class="label-margin">
+          <label for="email">본인 확인 이메일<span class="sub-title">(선택)</span></label>
+        </div>
+        <input type="email" id="email" name="email" placeholder="선택입력">
+      </div>
+
+      <!-- input 들을 그룹으로 묶음: 세번째 그룹 -->
+      <div class="input-group">
+        <div class="label-margin">
+          <label for="phoneNo">휴대전화</label>
+        </div>
+        <div class="input-group-row">
+          <select name="nationNo" id="nationNo">
+            <option value="233">가나 +233</option>
+            <option value="241">가봉 +241</option>
+            <option value="82" selected>대한민국 +82</option>
+            <option value="852">홍콩 +852</option>
+          </select>
+        </div>
+        <div class="input-group-row">
+          <input type="tel" id="phoneNo" name="phoneNo" placeholder="전화번호 입력" style="width: 335px;">
+          <button type="button" class="btn-primary btn-verify">인증번호 받기</button>
+        </div>
+        <div class="input-group-row">
+          <input type="number" id="authNo" name="authNo" placeholder="인증번호 입력하세요" maxlength="4" disabled>
+        </div>
+      </div>
+
+      <div class="btn_area">
+        <button type="button" class="btn-primary btn-join">
+          <!-- 글자에 스타일을 주고싶으면 span으로 묶음 -->
+          <span>가입하기</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 영역 -->
+  <div id="footer">
+    <div class="bottom">
+      <!-- 하단 메뉴 -->
+      <div class="bt-menu">
+        <!-- 메뉴는 ul, li 태그를 주로 사용(메뉴 목록을 의미) -->
+        <ul>
+          <li>
+            <a href="#">이용약관</a>
+          </li>
+          <li>
+            &nbsp;|&nbsp;
+            <a href="#">개인정보처리방침</a>
+          </li>
+          <li>
+            &nbsp;|&nbsp;
+            <a href="#">책임의 한계와 법적고지</a>
+          </li>
+          <li>
+            &nbsp;|&nbsp;
+            <a href="#">회원정보</a>
+          </li>
+          <li>
+            &nbsp;|&nbsp;
+            <a href="#">고객센터</a>
+          </li>
+        </ul>
+      </div>
+      <!-- 카피라이트 -->
+      <div class="copyright">
+        &copy;Copyright NAVER Corp. All Rights Reserved.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
