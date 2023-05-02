@@ -10,6 +10,7 @@ const SignUpWrapper = styled.div`
   background-image: url(${LoginBack});
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 
 	.inner {
     max-width: 1200px;
@@ -77,7 +78,7 @@ const SignUpWrapper = styled.div`
   .errorMessageWrap{
     margin:10px 0;
     color: #ef0000;
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
@@ -112,6 +113,7 @@ const BrithCenter = styled.div`
   .birth-year {
     display: flex;
     width:100%;
+    border-radius: 4px;
     padding: 10px;
     margin-top: 8px;
     background-color: white;
@@ -129,6 +131,7 @@ const BrithCenter = styled.div`
   .birth-day {
     display: flex;
     padding: 10px;
+    border-radius: 4px;
     margin-top: 8px;
     background-color: white;
     border: 1px solid #e2e0c0;
@@ -182,8 +185,9 @@ const PhoneGroup = styled.div`
 function SignUp(props) {
 	const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-	const [reName, setReName] = useState('');
+  const [name, setName] = useState('');
 
+	const [reName, setReName] = useState(false);
 	const [idValid, setIdValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
 	const [pwReconfirm, setPwReconfirm] = useState('');
@@ -198,6 +202,7 @@ function SignUp(props) {
       setIdValid(false);
     }
   };
+  
   const handlePw = (e) => {
     setPw(e.target.value);
     const regex =
@@ -214,11 +219,13 @@ function SignUp(props) {
   };
 
 	const handleReplaceName = (e) => {
-    setReName(e.target.value);
+    setName(e.target.value);
     const regex =
       /^[가-힣]+$/
     if (regex.test(e.target.value)) {
-
+      setReName(true);
+    } else {
+      setReName(false);
     }
   }
 
@@ -229,12 +236,11 @@ function SignUp(props) {
 					회원가입
 				</div>
 
-
         <div className='contentWrap'>
           <div className='nameWrap'>
             이메일
           </div>
-          <div className='inputWrap'>
+          <div className='inputWrap' style={{ marginBottom: 20 }}>
             <input
               type='text'
               className='input'
@@ -286,7 +292,7 @@ function SignUp(props) {
           <div className='errorMessageWrap'>
             {
               pw !== pwReconfirm && (
-                <div>동일하지 않은 비민번호 입니다.</div>
+                <div>비밀번호를 다시 확인해 주세요!</div>
               )
             }
           </div>
@@ -299,7 +305,7 @@ function SignUp(props) {
                 type='text'
                 className='input'
                 placeholder='이름 입력'
-                value={reName}
+                value={name}
                 onChange={handleReplaceName}
               />
             </div>
@@ -309,10 +315,17 @@ function SignUp(props) {
               <option value="F">여자</option>
             </select>
           </NameCenter>
+          <div className='errorMessageWrap'>
+            {
+              reName !== name.length > 0 && (
+                <div>이름을 한글로 정확히 입력해 주세요</div>
+              )
+            }
+          </div>
 
           <div className='nameWrap' style={{ marginTop: '12px' }}>
             생년월일
-          </div>
+          </div>BrithCenter
           <BrithCenter> 
             <input className='birth-year' type="text" placeholder="년(4자)" maxlength="4" />
             <select className="birth-month" >

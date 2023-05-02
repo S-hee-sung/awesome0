@@ -13,7 +13,6 @@ const BoxWrapper = styled.div`
   background-size: cover;
 `;
 
-
 const PwWrapper = styled.div`
   width: 500px;
   margin: 0 auto;
@@ -73,6 +72,7 @@ const InputWrapper = styled.input`
     border: 2px solid #359381;
   }
 `;
+
 const TagStyle = styled.ul`
   height: 30px;
   display: flex;
@@ -131,7 +131,7 @@ function FindPw () {
         <TagStyle>
           <li onClick={() => { navigate('/login'); }}>돌아가기</li>
           <li>|</li>
-          <li onClick={() => { navigate('/findId'); }}>아이디 찾기</li>
+          <li onClick={() => { navigate('/findId'); }}>이메일 찾기</li>
         </TagStyle>
       </PwWrapper>
     </BoxWrapper>

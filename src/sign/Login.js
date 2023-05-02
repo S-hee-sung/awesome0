@@ -110,6 +110,30 @@ const LoginWrapper = styled.div`
   }
 `;
 
+const TitleWrap = styled.div`
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+`;
+
+const FindWrap = styled.div`
+  height: 30px;
+  margin: 0 auto;
+
+  ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    font-size: 12px;
+    color: #fff;
+    margin: 10px 0;
+    gap: 10px;
+    list-style: none;
+  }
+`;
 
 function Login(props) {
   const navigate = useNavigate();
@@ -147,14 +171,13 @@ function Login(props) {
   }
 
   const handlePasswordType = (e) => {
-    setPasswordType(() => {
-      if (!setPasswordType.visible) {
-        return {type: 'text', visible: true}
+    setPasswordType((prevState) => {
+      if (!prevState.visible) {
+        return { ...prevState, type: 'text', visible: true };
       }
-      return {type: 'password', visible: false}
+      return { ...prevState, type: 'password', visible: false };
     })
   }
-
 
   const onClickConfirmButon = () => {
     if (email === User.email && pw === User.pw) {
@@ -173,13 +196,12 @@ function Login(props) {
   }, [emailValid, pwValid]);
 
 
-
   return (
     <LoginWrapper>
       <div className='inner'>
-        <div className='titleWrap' onClick={() => navigate("/")}>
+        <TitleWrap onClick={() => navigate("/")}>
           AweSome
-        </div>
+        </TitleWrap>
 
         <div className='contentWrap'>
           
@@ -201,9 +223,7 @@ function Login(props) {
             }
           </div>
 
-          <div 
-            style={{ marginTop: "26px" }} 
-            className='inputTitle'>
+          <div style={{ marginTop: "26px" }} className='inputTitle'>
             비밀번호
           </div>
           <div className='inputWrap'>
@@ -236,7 +256,7 @@ function Login(props) {
             </button>
           </div>
 
-          <div className='joinFindWrap'>
+          <FindWrap>
             <ul>
               <li onClick={() => navigate("/signUp")}>
                 회원가입
@@ -254,7 +274,7 @@ function Login(props) {
                 비밀번호 찾기
               </li>
             </ul>
-          </div>
+          </FindWrap>
         </div>
       </div>
     </LoginWrapper>

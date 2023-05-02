@@ -2,8 +2,6 @@ import styled from "styled-components";
 import realImg from "../images/realTime2.png";
 import { Fade, Slide } from "react-awesome-reveal";
 
-
-
 const ChatWrapper = styled.div`
 	width: 100vw;
 	height: 100vh;

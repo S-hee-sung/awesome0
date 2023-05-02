@@ -13,7 +13,6 @@ const BoxWrapper = styled.div`
   background-size: cover;
 `;
 
-
 const IdWrapper = styled.div`
   width: 500px;
   margin: 0 auto;
