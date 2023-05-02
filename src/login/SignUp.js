@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 
+import LoginBack from "../images/login-back.jpg";
+
 const SignUpWrapper = styled.div`
 	position: absolute;
   top: 0;
@@ -9,58 +11,74 @@ const SignUpWrapper = styled.div`
 
   width: 100%;
   padding: 140px 0;
+  background-image: url(${LoginBack});
+  background-repeat: no-repeat;
+  background-size: cover;
 
 	.inner {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 50px 0;
   }
 	.titleWrap {
-    font-size: 32px;
-    font-weight: bold;
-    padding: 100px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
   }
 	.contentWrap {
-    margin-top: 20px;
-    width: 550px;
+    padding-top: 50px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .inputWrap {
+    display: flex;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+  }
+  .inputWrap:focus-within {
+    border: 1px solid #9e30f4;
+  }  
+  .input {
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 17px;
+    font-size: 14px;
+    font-weight: 400;
 
-    .inputWrap {
-      padding: 16px;
-      .input {
-        width: 100%;
-        outline: none;
-        height: 40px;
-        font-size: 18px;
-        font-weight: 400;
-        &::placeholder{
-          color: #dadada;
-        }
-      }
-			
+    &::placeholder{
+      color: #dadada;
     }
-    .bottomButton{
-      width: 100%;
-      padding: 0;
-      height: 40px;
-      border: none;
-      font-weight: bold;
-      background-color: black;
-      color: white;
-      font-size: 20px;
-      padding: 10px 0;
-      margin-top: 2px;
-      cursor: pointer;
-      &:disabled{
-        background-color: #dadada;
-        color: white;
-      }
-    }
-    .errorMessageWrap{
-      margin:10px 0;
-      color: #ef0000;
-      font-size: 12px;
-    }
-	}
+  }
+  .bottomButton {
+    width: 100%;
+    margin: 0 auto;
+    height: 48px;
+    border: none;
+    font-weight: 700;
+    background-color: #9e30f4;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+  .bottomButton:disabled {
+    background-color: #dadada;
+    color: white;
+  }
+  .errorMessageWrap{
+    margin:10px 0;
+    color: #ef0000;
+    font-size: 12px;
+  }
 `;
 
 function SignUp(props) {
@@ -114,9 +132,9 @@ function SignUp(props) {
 				</div>
 				
 				<div className='contentWrap'>
-					<div className='nameWrap'>
+					{/* <div className='nameWrap'>
 						이메일
-					</div>
+					</div> */}
 					<div className='inputWrap'>
 						<input
 							type='text'
@@ -125,18 +143,18 @@ function SignUp(props) {
 							value={id}
 							onChange={handleId}
 						/>
-						<div className='errorMessageWrap'>
-							{
-								!idValid && id.length > 0 && (
-									<div>올바른 이메일을 입력해주세요.</div>
-								)
-							}
-						</div>
+          </div>
+          <div className='errorMessageWrap'>
+            {
+              !idValid && id.length > 0 && (
+                <div>올바른 이메일을 입력해주세요.</div>
+              )
+            }
 					</div>
 
-					<div className='nameWrap'>
+					{/* <div className='nameWrap'>
 						비밀번호
-					</div>
+					</div> */}
 					<div className='inputWrap'>
 						<input
 							type='password'
@@ -154,9 +172,9 @@ function SignUp(props) {
 						}
 					</div>
 
-					<div className='nameWrap'>
+					{/* <div className='nameWrap'>
 						비밀번호 재확인
-					</div>
+					</div> */}
 					<div className='inputWrap' style={{ marginBottom: '12px' }}>
 						<input
 							type='password'
@@ -174,9 +192,9 @@ function SignUp(props) {
 						}
 					</div>
 
-					<div className='nameWrap'>
+					{/* <div className='nameWrap'>
             이름
-          </div>
+          </div> */}
           <div className='inputWrap'>
             <input
               type='text'

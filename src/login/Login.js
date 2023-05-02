@@ -29,7 +29,6 @@ const LoginWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 50px 0;
-
   }
 
   .titleWrap {
@@ -89,7 +88,7 @@ const LoginWrapper = styled.div`
     cursor: pointer;
   }
   .bottomButton:disabled {
-    background-color: #dadada;
+    background-color: #359381;
     color: white;
   }
   .joinFindWrap{
