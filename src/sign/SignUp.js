@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 
-import LoginBack from "../images/login-back.jpg";
+import LoginBack from "../images/sign.jpg";
 
 const SignUpWrapper = styled.div`
-	position: absolute;
-  top: 0;
-  bottom: 0;
-  overflow: hidden;
-
   width: 100%;
-  padding: 140px 0;
+  height: 100%;
+  padding: 100px;
   background-image: url(${LoginBack});
   background-repeat: no-repeat;
   background-size: cover;
 
 	.inner {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -26,10 +22,14 @@ const SignUpWrapper = styled.div`
 	.titleWrap {
     font-size: 26px;
     font-weight: 700;
-    color: #fff;
+    color: #000;
     cursor: pointer;
   }
-	.contentWrap {
+  .nameWrap {
+    font-weight: 500;
+    color: #000;
+  }
+  .contentWrap {
     padding-top: 50px;
     width: 100%;
     max-width: 500px;
@@ -39,7 +39,7 @@ const SignUpWrapper = styled.div`
     display: flex;
     padding: 8px;
     margin-top: 8px;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid #e2e0c0;
   }
   .inputWrap:focus-within {
@@ -52,6 +52,7 @@ const SignUpWrapper = styled.div`
     height: 17px;
     font-size: 14px;
     font-weight: 400;
+    background-color: #fff;
 
     &::placeholder{
       color: #dadada;
@@ -63,7 +64,7 @@ const SignUpWrapper = styled.div`
     height: 48px;
     border: none;
     font-weight: 700;
-    background-color: #9e30f4;
+    background-color: #359381;
     border-radius: 4px;
     color: white;
     cursor: pointer;
@@ -84,7 +85,7 @@ const NameCenter = styled.div`
   display: flex;
   width: 100%;
 
-  .ReNameWrap {
+  .ReInputWrap {
     display: flex;
     width: 100%;
     padding: 8px;
@@ -136,7 +137,9 @@ const BrithCenter = styled.div`
 `;
 
 const PhoneGroup = styled.div`
-  
+  border: none;
+  text-decoration: none;
+
   .input-group + .input-group {
       margin-top: 40px;
   }
@@ -151,13 +154,28 @@ const PhoneGroup = styled.div`
     height: 51px;
     border: solid 1px #dadada;
     padding: 10px 14px 10px 14px;
-
-    /* Tip! 커서 속성을 포인터로 */
-    /* w3school에서 다양한 속성 값 확인해보기! */
     cursor: pointer;
   }
   input:focus, select:focus {
     border: 1px solid #03c75a;
+  }
+  .btn-verify {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 115px;
+    height: 51px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    background-color: #359381;
+  }
+  .authNo {
+    opacity: 0.5;
+
+    &::placeholder {
+      color: #000;
+    }
   }
 `;
 
@@ -210,19 +228,20 @@ function SignUp(props) {
 				<div className='titleWrap'>
 					회원가입
 				</div>
-				
-				<div className='contentWrap'>
-					<div className='nameWrap'>
-						이메일
-					</div>
-					<div className='inputWrap'>
-						<input
-							type='text'
-							className='input'
-							placeholder='이메일'
-							value={id}
-							onChange={handleId}
-						/>
+
+
+        <div className='contentWrap'>
+          <div className='nameWrap'>
+            이메일
+          </div>
+          <div className='inputWrap'>
+            <input
+              type='text'
+              className='input'
+              placeholder='이메일'
+              value={id}
+              onChange={handleId}
+            />
           </div>
           <div className='errorMessageWrap'>
             {
@@ -230,53 +249,52 @@ function SignUp(props) {
                 <div>올바른 이메일을 입력해주세요.</div>
               )
             }
-					</div>
+          </div>
 
-					<div className='nameWrap'>
-						비밀번호
-					</div>
-					<div className='inputWrap'>
-						<input
-							type='password'
-							className='input'
-							placeholder='비밀번호'
-							value={pw}
-							onChange={handlePw}
-						/>
-					</div>
-					<div className='errorMessageWrap'>
-						{
-							!pwValid && pw.length > 0 && (
-								<div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
-							)
-						}
-					</div>
+          <div className='nameWrap'>
+            비밀번호
+          </div>
+          <div className='inputWrap'>
+            <input
+              type='password'
+              className='input'
+              placeholder='비밀번호'
+              value={pw}
+              onChange={handlePw}
+            />
+          </div>
+          <div className='errorMessageWrap'>
+            {
+              !pwValid && pw.length > 0 && (
+                <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+              )
+            }
+          </div>
 
-					<div className='nameWrap'>
-						비밀번호 재확인
-					</div>
-					<div className='inputWrap' style={{ marginBottom: '12px' }}>
-						<input
-							type='password'
-							className='input'
-							placeholder='비밀번호 재확인'
-							value={pwReconfirm}
-							onChange={handlePwReconfirm}
-						/>
-					</div>
-					<div className='errorMessageWrap'>
-						{
-							pw !== pwReconfirm && (
-								<div>동일하지 않은 비민번호 입니다.</div>
-							)
-						}
-					</div>
-
-					<div className='nameWrap'>
+          <div className='nameWrap'>
+            비밀번호 재확인
+          </div>
+          <div className='inputWrap' style={{ marginBottom: '12px' }}>
+            <input
+              type='password'
+              className='input'
+              placeholder='비밀번호 재확인'
+              value={pwReconfirm}
+              onChange={handlePwReconfirm}
+            />
+          </div>
+          <div className='errorMessageWrap'>
+            {
+              pw !== pwReconfirm && (
+                <div>동일하지 않은 비민번호 입니다.</div>
+              )
+            }
+          </div>
+          <div className='nameWrap' style={{ marginTop: 50 }}>
             이름
           </div>
           <NameCenter> 
-            <div className='ReNameWrap'>
+            <div className='ReInputWrap'>
               <input
                 type='text'
                 className='input'
@@ -296,7 +314,7 @@ function SignUp(props) {
             생년월일
           </div>
           <BrithCenter> 
-            <input className='birth-year' type="text" placeholder="년(4자)" />
+            <input className='birth-year' type="text" placeholder="년(4자)" maxlength="4" />
             <select className="birth-month" >
               <option value="" selected>월</option>
               <option value="1">1</option>
@@ -315,11 +333,11 @@ function SignUp(props) {
             <input className='birth-day' type="text" id="dd" name="dd" placeholder="일"  />
           </BrithCenter>
           
-					<div className="input-group">
-            <div className='nameWrap'>
+          <PhoneGroup>
+            <div className='nameWrap' style={{ marginTop: '12px' }}>
               휴대전화
             </div>
-            <div className="input-group-row">
+            <div className="input-group-row" style={{ marginTop: '12px' }}>
               <select>
                 <option value="233">가나 +233</option>
                 <option value="241">가봉 +241</option>
@@ -328,23 +346,21 @@ function SignUp(props) {
               </select>
             </div>
             <div className="input-group-row">
-              <input type="tel" id="phoneNo" name="phoneNo" placeholder="전화번호 입력" />
-              <button type="button" class="btn-primary btn-verify">인증번호 받기</button>
+              <input type="tel" id="phoneNo" className='tel' placeholder="전화번호 입력" />
+              <button type="button" className="btn-verify">인증번호 받기</button>
             </div>
             <div className="input-group-row">
-              <input type="number" id="authNo" name="authNo" placeholder="인증번호 입력하세요" maxlength="4" disabled />
+              <input type="text" id="authNo" className="authNo" placeholder="인증번호(4자)를 입력하세요" maxlength="4"/>
             </div>
+          </PhoneGroup>
+
+          <div>
+            <button className='bottomButton'>
+              회원가입
+            </button>
           </div>
-
-
-					<div >
-						<button className='bottomButton'>
-							회원가입
-						</button>
-					</div>
-				
-				</div>
-			</div>
+        </div>
+      </div>
 		</SignUpWrapper>
 );
 }

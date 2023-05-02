@@ -3,9 +3,11 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import reset from "styled-reset";
 
 import Header from './page/Header';
-import Login from "./login/Login";
+import Login from "./sign/Login";
 import Main from "./page/Main";
-import SignUp from "./login/SignUp";
+import SignUp from "./sign/SignUp";
+import FindId from "./sign/FindId";
+import FindPw from "./sign/FindPw";
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -40,10 +42,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Main />} /> 
-
         </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/findId" element={<FindId />} />
+          <Route path="/findPw" element={<FindPw />} />
 
       </Routes>
       

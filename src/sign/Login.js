@@ -244,13 +244,13 @@ function Login(props) {
               <li>
                 |
               </li>
-              <li>
-                아이디 찾기
+              <li onClick={() => navigate("/findId")}>
+                이메일 찾기
               </li>
               <li>
                 |
               </li>
-              <li>
+              <li onClick={() => { navigate('/findPw'); }}>
                 비밀번호 찾기
               </li>
             </ul>
