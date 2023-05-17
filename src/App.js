@@ -8,6 +8,7 @@ import Main from "./page/Main";
 import SignUp from "./sign/SignUp";
 import FindId from "./sign/FindId";
 import FindPw from "./sign/FindPw";
+import Exchange from "./components/subPage/Exchange";
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -43,6 +44,7 @@ function App() {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/findId" element={<FindId />} />
           <Route path="/findPw" element={<FindPw />} />
+          <Route path="/exChange" element={<Exchange />} />
         </Route>
       </Routes>
       

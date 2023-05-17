@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import realImg from "../images/realTime2.png";
 import { Fade, Slide } from "react-awesome-reveal";
+import { useNavigate } from "react-router-dom";
 
 const ChatWrapper = styled.div`
 	width: 100vw;
@@ -54,6 +55,7 @@ const TextBox = styled.div`
 `;
 
 function RealTime() {
+	const navigate = useNavigate();
 	return (  
 		<ChatWrapper>
 			<div className="wrapper">
@@ -70,7 +72,7 @@ function RealTime() {
 					<Fade delay={500} cascade damping={0.1}>
 						<h4>실시간 시세 확인부터 <br />주문까지 빠른 디지털 자산 거래소를 만나보세요.</h4>
 					</Fade>
-					<button className="realTimeBtn">실시간 시세 확인하기</button>
+					<button className="realTimeBtn" onClick={() => navigate("/exChange")}>실시간 시세 확인하기</button>
 				</TextBox>
 			</div>
 		</ChatWrapper>
