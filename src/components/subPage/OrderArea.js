@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const OrderAreaWrapper = styled.div`
-
+  margin-bottom: 50px;
 `;
 
 const ChatTittle = styled.div`
@@ -28,6 +28,7 @@ const ChatTittle = styled.div`
   }
 `;
 
+
 function OrderArea(props) {
   return (
     <OrderAreaWrapper>
@@ -35,7 +36,6 @@ function OrderArea(props) {
         <h2>비트코인</h2>
         <span>BTC /KRW</span>
       </ChatTittle>
-      {/* chat */}
       {/* article */}
     </OrderAreaWrapper>
   );
