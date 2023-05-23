@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/oriental #H2(Server) ??
+    username: jyh #???
+    password: jyh #????
+    driver-class-name: org.h2.Driver
+  jpa:
+    database: H2
+    show-sql: true #JAP ?? ? SQL? ?? ??
