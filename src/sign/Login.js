@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { IoEyeOff, IoEye } from "react-icons/io5";
 
 import LoginBack from "../images/login-back.jpg";
+import axios from "axios";
 
 const User = {
   email: 'test@example.com',
@@ -134,6 +135,55 @@ const FindWrap = styled.div`
     list-style: none;
   }
 `;
+// login ex =========
+const [email, setInputId] = useState("");
+const [pw, setInputPw] = useState("");
+
+const handleInputId = (e) => {
+  setEmail(e.target.value);
+};
+
+const handleInputPw = (e) => {
+  setPw(e.target.value);
+};
+// 수정 inputID -> email / inputPw -> pw
+const onClickLogin = () => {
+  console.log("click login");
+  console.log("ID : ", email);
+  console.log("PW : ", pw);
+  axios
+      .post("http://localhost:8080/api/login", {
+        email: email,
+        passwd: pw,
+      })
+      .then((res) => {
+        console.log(res);
+        console.log("res.data.userId :: ", res.data.userId);
+        console.log("res.data.msg :: ", res.data.msg);
+        if (res.data.email === undefined) {
+          // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
+          console.log("======================", res.data.msg);
+          alert("입력하신 id 가 일치하지 않습니다.");
+        } else if (res.data.email === null) {
+          // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
+          console.log(
+              "======================",
+              "입력하신 비밀번호 가 일치하지 않습니다."
+          );
+          alert("입력하신 비밀번호 가 일치하지 않습니다.");
+        } else if (res.data.email === email) {
+          // id, pw 모두 일치 userId = userId1, msg = undefined
+          console.log("======================", "로그인 성공");
+          sessionStorage.setItem("user_id", email); // sessionStorage에 id를 user_id라는 key 값으로 저장
+          sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
+        }
+        // 작업 완료 되면 페이지 이동(새로고침)
+        document.location.href = "/";
+      })
+      .catch();
+};
+
+// ===========
 
 function Login(props) {
   const navigate = useNavigate();
@@ -249,9 +299,9 @@ function Login(props) {
               )
             }
           </div>
-
+          {/* 수정 onclick*/}
           <div style={{ marginTop: "40px" }}>
-            <button onClick={onClickConfirmButon} disabled={notAllow} className='bottomButton'>
+            <button onClick={onClickLogin} disabled={notAllow} className='bottomButton'>
               로그인
             </button>
           </div>
