@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oriental.bitcoin.mapper.AccountMapper">
+
+<insert id="accountRegDoIt" parameterType="com.oriental.bitcoin.model.AccountDTO">
+    insert into account values(#{ac_id},#{ac_pw},#{ac_name},#{ac_birth},#{ac_phone},#{ac_gender},sysdate)
+</insert>
+
+<!--<select id="getAccountById" parameterType="com.project.camping.account.AccountDTO" resultType="com.project.camping.account.AccountDTO">-->
+<!--select * from account where ac_id = #{ac_id}-->
+<!--</select>-->
+
+<!--<select id="doubleCheckPw" parameterType="String" resultType="String">-->
+<!--select ac_pw from account where ac_id = #{ac_id}-->
+<!--</select>-->
+
+<!--<select id="getIdCheck" parameterType="String" resultType="int">-->
+<!--select count(*) from account where ac_id = #{ac_id2}-->
+<!--</select>-->
+
+<!--<select id="GoFindId" parameterType="map" resultType="String">-->
+<!--select ac_id from account where ac_name = #{ac_name} and ac_phone = #{ac_phone} -->
+<!--</select>-->
+
+<!--<select id="selectAccount" parameterType="String" resultType="com.project.camping.account.AccountDTO">-->
+<!--	select * from account where ac_id = #{ac_id}-->
+<!--</select>-->
+
+<!--<update id="updatePw" parameterType="map">-->
+<!--	update account set ac_pw = #{ac_pw} where ac_id = #{ac_id}-->
+<!--</update>-->
+
+<!--<update id="accountUpdateProfile" parameterType="com.project.camping.account.AccountDTO">-->
+<!--	update account -->
+<!--	set ac_pw = #{ac_pw}, ac_name = #{ac_name}, -->
+<!--	ac_birth = #{ac_birth}, ac_phone = #{ac_phone}, -->
+<!--	ac_postcode = #{ac_postcode}, ac_address = #{ac_address}, -->
+<!--	ac_detailAddress = #{ac_detailAddress}, ac_extraAddress = #{ac_extraAddress},-->
+<!--	ac_gender = #{ac_gender}, ac_file = #{ac_file}-->
+<!--	where ac_id = #{ac_id}-->
+<!--</update>-->
+
+<!--<select id="getAccountByEmail" parameterType="String" resultType="com.project.camping.account.AccountDTO">-->
+<!--select * from account where ac_id = #{email}-->
+<!--</select>-->
+
+<!--&lt;!&ndash; 자동 로그인 쿠키 추가 로직 &ndash;&gt;-->
+<!--<update id="addUserSession" parameterType="com.project.camping.account.AccountDTO">-->
+<!--	update account set ac_sessionkey = #{ac_sessionkey}, ac_sessionlimit = #{ac_sessionlimit} where ac_id = #{ac_id}-->
+<!--</update>-->
+
+<!--<select id="getAccountByCookie" resultType="com.project.camping.account.AccountDTO">-->
+<!--	select * from account where ac_sessionkey = #{ac_sessionkey}-->
+<!--</select>-->
+
+<!--<delete id="deleteUserDoIt" parameterType="String">-->
+<!--	delete account where ac_id = #{ac_id} -->
+<!--</delete>-->
+
+</mapper>
