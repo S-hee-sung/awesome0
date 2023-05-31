@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.6fd4fb51.js",
+    "main.js": "/static/js/main.06a4e0b8.js",
     "static/media/coin1.mp4": "/static/media/coin1.e1839b8786bb12a54976.mp4",
     "static/media/login-back.jpg": "/static/media/login-back.7848bbda720975979bb7.jpg",
     "static/media/sign.jpg": "/static/media/sign.049daedc4ce18d1042ac.jpg",
@@ -9,9 +9,9 @@
     "static/media/universe.png": "/static/media/universe.a255c598d299901a10f6.png",
     "static/media/walletImg.png": "/static/media/walletImg.5153c3eed2771246f3bb.png",
     "index.html": "/index.html",
-    "main.6fd4fb51.js.map": "/static/js/main.6fd4fb51.js.map"
+    "main.06a4e0b8.js.map": "/static/js/main.06a4e0b8.js.map"
   },
   "entrypoints": [
-    "static/js/main.6fd4fb51.js"
+    "static/js/main.06a4e0b8.js"
   ]
 }

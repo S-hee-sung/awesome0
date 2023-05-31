@@ -1,15 +1,17 @@
 package com.oriental.bitcoin.mapper;
-import java.util.Map;
 
 import com.oriental.bitcoin.model.AccountDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+
+@Repository
 @Mapper
 public interface AccountMapper {
 
     AccountDTO getAccountById(String ac_id);
 
-    int accountRegDoIt(AccountDTO ac);
+    int accountRegDoIt(AccountDTO reqAccout);
 //
 //    AccountDTO getAccountById(AccountDTO a);
 //

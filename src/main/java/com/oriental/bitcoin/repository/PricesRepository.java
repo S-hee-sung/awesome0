@@ -1,12 +1,12 @@
-package com.oriental.bitcoin.repository;
-
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-
-import com.oriental.bitcoin.model.Prices;
-
+//package com.oriental.bitcoin.repository;
+//
+//import java.util.List;
+//
+//import org.springframework.data.repository.CrudRepository;
+//import org.springframework.stereotype.Repository;
+//
+//import com.oriental.bitcoin.model.Prices;
+//
 //@Repository
 //public interface PricesRepository extends CrudRepository<Prices, Integer>{
 //

@@ -8,25 +8,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+
+@RequestMapping("/api")
 @Service
 @CrossOrigin(origins = "*")
-@RequestMapping("/api")
 @RequiredArgsConstructor
 public class MemberController {
 
     @Autowired
     private AccountDAO aDAO;
 
+
+//    @GetMapping("/api/hello")
+//    public String test() {
+//        return "Hello, world!";
+//    }
     @PostMapping("/login")
     @ResponseBody
-    public AccountDTO login(HttpServletRequest req, AccountDTO ac) {
-        return aDAO.MakeLogin(req, ac);
+    public AccountDTO login(@RequestBody HashMap<String, Object> requestJsonHashMap, AccountDTO ac) {
+        return aDAO.MakeLogin(requestJsonHashMap, ac);
     }
 
-    @PostMapping("/SignUp")
+    @PostMapping("/signUp")
     @ResponseBody
-    public int SignUp(HttpServletRequest req, AccountDTO ac) {
-        return aDAO.MakeSignUp(req, ac);
+    public int SignUp(@RequestBody HashMap<String, Object> requestJsonHashMap, AccountDTO ac) {
+        return aDAO.MakeSignUp(requestJsonHashMap, ac);
     }
 
 }

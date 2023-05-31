@@ -1,10 +1,7 @@
 package com.oriental.bitcoin.model;
 
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,6 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class AccountDTO{
 	private String ac_id;
 	private String ac_pw;
