@@ -161,4 +161,32 @@ public class AccountDAO {
 
 	}
 
+	public int MakeSignUp(HttpServletRequest req, AccountDTO ac) {
+		String ac_id = (String) req.getParameter("ac_id");
+		String ac_pw = (String) req.getParameter("ac_pw");
+		String ac_name = (String) req.getParameter("ac_name");
+		String ac_gender = (String) req.getParameter("ac_gender");
+		String ac_birth_y = (String) req.getParameter("ac_birth_y");
+		String ac_birth_m = (String) req.getParameter("ac_birth_m");
+		String ac_birth_d = (String) req.getParameter("ac_birth_d");
+		String ac_phone = (String) req.getParameter("ac_phone");
+
+		String ac_birth = ac_birth_y + ac_birth_m + ac_birth_d;
+//
+		ac.setAc_id(ac_id);
+		ac.setAc_pw(ac_pw);
+		ac.setAc_name(ac_name);
+		ac.setAc_gender(ac_gender);
+		ac.setAc_birth(ac_birth);
+		ac.setAc_phone(ac_phone);
+//
+		AccountMapper mm = ss.getMapper(AccountMapper.class);
+		if (mm.accountRegDoIt(ac)== 1){
+			return 1;
+		}else{
+			return 0;
+		}
+
+
+	}
 }

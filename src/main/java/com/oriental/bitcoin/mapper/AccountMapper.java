@@ -9,7 +9,7 @@ public interface AccountMapper {
 
     AccountDTO getAccountById(String ac_id);
 
-//    int accountRegDoIt(AccountDTO ac);
+    int accountRegDoIt(AccountDTO ac);
 //
 //    AccountDTO getAccountById(AccountDTO a);
 //

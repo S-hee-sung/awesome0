@@ -27,7 +27,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.8'
 //	runtimeOnly 'com.h2database:h2:2.1.214'
 	implementation group: 'org.javassist', name: 'javassist', version: '3.15.0-GA'
-	implementation 'mysql:mysql-connector-java'
+//	implementation 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.8'
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
