@@ -28,9 +28,12 @@ select * from all_constraints
 where table_name like '%stuff'
 
 
-insert into account values('test@naver.com','1111','jun','971229','010-1111-1111','남',sysdate);
-insert into account values('test2@naver.com','1111','jun1','971229','010-2222-2222','여',sysdate);
-insert into account values('test3@naver.com','1111','jun3','971229','010-3333-3333','남',sysdate);
+insert into account values('test@naver.com','11111111','jun','971229','010-1111-1111','남',sysdate);
+insert into account values('test2@naver.com','11111111','jun1','971229','010-2222-2222','여',sysdate);
+insert into account values('test3@naver.com','11111111','jun3','971229','010-3333-3333','남',sysdate);
+
+insert into account values('test4@naver.com','wnsdud12!!','jun3','971229','010-3333-3333','남',sysdate);
+
 insert into account values('jun19975@naver.com','1111','jun6','971229','010-4444-4444','a','b','c','d','n','a.jpg','jun19975@naver.com',sysdate);
 insert into account values('judgemk1@naver.com','1111','jun4','971229','010-4444-4444','a','b','c','d','n','a.jpg');
 delete account where ac_id like '%judgemk1%'

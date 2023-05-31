@@ -6,9 +6,9 @@
     insert into account values(#{ac_id},#{ac_pw},#{ac_name},#{ac_birth},#{ac_phone},#{ac_gender},sysdate)
 </insert>
 
-<!--<select id="getAccountById" parameterType="com.project.camping.account.AccountDTO" resultType="com.project.camping.account.AccountDTO">-->
-<!--select * from account where ac_id = #{ac_id}-->
-<!--</select>-->
+<select id="getAccountById" parameterType="com.oriental.bitcoin.model.AccountDTO" resultType="com.oriental.bitcoin.model.AccountDTO">
+select * from account where ac_id = #{ac_id}
+</select>
 
 <!--<select id="doubleCheckPw" parameterType="String" resultType="String">-->
 <!--select ac_pw from account where ac_id = #{ac_id}-->
