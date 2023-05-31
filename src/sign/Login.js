@@ -7,131 +7,131 @@ import LoginBack from "../images/login-back.jpg";
 import axios from "axios";
 
 
-// const LoginWrapper = styled.div`
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   overflow: hidden;
-//
-//   width: 100%;
-//   padding: 140px 0;
-//   background-image: url(${LoginBack});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//
-//   .inner {
-//     max-width: 800px;
-//     margin: 0 auto;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: 50px 0;
-//   }
-//
-//   .titleWrap {
-//     font-size: 26px;
-//     font-weight: 700;
-//     color: #fff;
-//     cursor: pointer;
-//   }
-//   .contentWrap {
-//     padding-top: 50px;
-//     width: 100%;
-//     max-width: 500px;
-//     margin: 0 auto;
-//   }
-//   .inputTitle {
-//     font-size: 12px;
-//     font-weight: 600;
-//     color: #fff;
-//   }
-//   .inputWrap {
-//     display: flex;
-//     border-radius: 8px;
-//     padding: 16px;
-//     margin-top: 8px;
-//     background-color: white;
-//     border: 1px solid #e2e0c0;
-//   }
-//
-//   .inputWrap:focus-within {
-//     border: 1px solid #9e30f4;
-//   }
-//   .input {
-//     width: 100%;
-//     outline: none;
-//     border: none;
-//     height: 17px;
-//     font-size: 14px;
-//     font-weight: 400;
-//   }
-//   .input::placeholder {
-//     color: #dadada;
-//   }
-//   .errorMessageWrap {
-//     margin-top: 8px;
-//     color: #ef0000;
-//     font-size: 12px;
-//   }
-//   .bottomButton {
-//     width: 100%;
-//     margin: 0 auto;
-//     height: 48px;
-//     border: none;
-//     font-weight: 700;
-//     background-color: #9e30f4;
-//     border-radius: 4px;
-//     color: white;
-//     cursor: pointer;
-//   }
-//   .bottomButton:disabled {
-//     background-color: #359381;
-//     color: white;
-//   }
-//   .joinFindWrap{
-//     height: 30px;
-//     margin: 0 auto;
-//
-//     ul{
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       height: 100%;
-//       cursor: pointer;
-//       font-size: 12px;
-//       color: #fff;
-//       margin: 10px 0;
-//       gap: 10px;
-//       list-style: none;
-//     }
-//   }
-// `;
-//
-// const TitleWrap = styled.div`
-//   font-size: 26px;
-//   font-weight: 700;
-//   color: #fff;
-//   cursor: pointer;
-// `;
-//
-// const FindWrap = styled.div`
-//   height: 30px;
-//   margin: 0 auto;
-//
-//   ul{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 100%;
-//     cursor: pointer;
-//     font-size: 12px;
-//     color: #fff;
-//     margin: 10px 0;
-//     gap: 10px;
-//     list-style: none;
-//   }
-// `;
+const LoginWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
 
+  width: 100%;
+  padding: 140px 0;
+  background-image: url(${LoginBack});
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+  }
+
+  .titleWrap {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+  }
+  .contentWrap {
+    padding-top: 50px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .inputTitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .inputWrap {
+    display: flex;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0;
+  }
+
+  .inputWrap:focus-within {
+    border: 1px solid #9e30f4;
+  }
+  .input {
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 17px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .input::placeholder {
+    color: #dadada;
+  }
+  .errorMessageWrap {
+    margin-top: 8px;
+    color: #ef0000;
+    font-size: 12px;
+  }
+  .bottomButton {
+    width: 100%;
+    margin: 0 auto;
+    height: 48px;
+    border: none;
+    font-weight: 700;
+    background-color: #9e30f4;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  .bottomButton:disabled {
+    background-color: #359381;
+    color: white;
+  }
+  .joinFindWrap{
+    height: 30px;
+    margin: 0 auto;
+
+    ul{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      cursor: pointer;
+      font-size: 12px;
+      color: #fff;
+      margin: 10px 0;
+      gap: 10px;
+      list-style: none;
+    }
+  }
+`;
+
+const TitleWrap = styled.div`
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+`;
+
+const FindWrap = styled.div`
+  height: 30px;
+  margin: 0 auto;
+
+  ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    font-size: 12px;
+    color: #fff;
+    margin: 10px 0;
+    gap: 10px;
+    list-style: none;
+  }
+`;
+function Login(props) {
 // login ex =========
 const [inputId, setInputId] = useState("");
 const [inputPw, setInputPw] = useState("");
@@ -181,7 +181,7 @@ const onClickLogin = () => {
 
 // ===========
 
-function Login(props) {
+
   return (
     <LoginWrapper>
       <div className='inner'>

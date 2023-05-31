@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
-
+import axios from "axios";
 import LoginBack from "../images/sign.jpg";
+
 
 const SignUpWrapper = styled.div`
   width: 100%;
@@ -229,6 +230,67 @@ function SignUp(props) {
     }
   }
 
+  //============= signUp
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
+  const [inputName, setInputName] = useState("");
+  const [inputGender, setInputGender] = useState("");
+  const [inputBirthY, setInputBirthY] = useState("");
+  const [inputBirthM, setInputBirthM] = useState("");
+  const [inputBirthD, setInputBirthD] = useState("");
+  const [inputPhone, setInputPhone] = useState("");
+
+  const handleInputId = (e) => {
+    setInputId(e.target.value);
+  };
+
+  const handleInputPw = (e) => {
+    setInputPw(e.target.value);
+  };
+  const handleInputName = (e) => {
+    setInputPw(e.target.value);
+  };
+  const handleInputGender = (e) => {
+    setInputPw(e.target.value);
+  };
+  const handleInputBirth = (e) => {
+    setInputPw(e.target.value);
+  };
+  const handleInputPhone = (e) => {
+    setInputPw(e.target.value);
+  };
+
+//=============================
+  const onClickSignUp = () => {
+    console.log("click SignUp");
+    console.log("ID : ", inputId);
+    console.log("PW : ", inputPw);
+    console.log("Name : ", inputName);
+    console.log("Gender : ", inputGender);
+    console.log("Birth : ", inputBirthY);
+    console.log("Phone : ", inputPhone);
+
+    axios
+        .post("http://localhost:8080/api/SignUp", {
+          ac_id: inputId,
+          ac_pw: inputPw,
+          ac_name: inputName,
+          ac_gender: inputGender,
+          ac_birth_y: inputBirthY,
+          ac_birth_m: inputBirthM,
+          ac_birth_d: inputBirthD,
+          ac_phone: inputPhone,
+        })
+        .then((res) => {
+          console.log(res);
+
+          // 작업 완료 되면 페이지 이동(새로고침)
+          document.location.href = "/";
+        })
+        .catch();
+  };
+
+
 	return (
 		<SignUpWrapper>
 			<div className='inner'>
@@ -245,8 +307,9 @@ function SignUp(props) {
               type='text'
               className='input'
               placeholder='이메일'
-              value={id}
-              onChange={handleId}
+              value={inputId}
+              name={inputId}
+              onChange={handleInputId}
             />
           </div>
           <div className='errorMessageWrap'>
@@ -265,8 +328,9 @@ function SignUp(props) {
               type='password'
               className='input'
               placeholder='비밀번호'
-              value={pw}
-              onChange={handlePw}
+              value={inputPw}
+              name={inputPw}
+              onChange={handleInputPw}
             />
           </div>
           <div className='errorMessageWrap'>
@@ -305,11 +369,12 @@ function SignUp(props) {
                 type='text'
                 className='input'
                 placeholder='이름 입력'
-                value={name}
-                onChange={handleReplaceName}
+                value={inputName}
+                name={inputName}
+                onChange={handleInputName}
               />
             </div>
-            <select className='gender'>
+            <select className='gender' value={inputGender} name={inputGender} onChange={handleInputGender}>
               <option value="" selected>성별</option>
               <option value="M">남자</option>
               <option value="F">여자</option>
@@ -327,8 +392,8 @@ function SignUp(props) {
             생년월일
           </div>BrithCenter
           <BrithCenter> 
-            <input className='birth-year' type="text" placeholder="년(4자)" maxlength="4" />
-            <select className="birth-month" >
+            <input className='birth-year' type="text" placeholder="년(4자)" maxlength="4" value={inputBirthY} name={inputBirthY} onChange={handleInputBirth}/>
+            <select className="birth-month" value={inputBirthM} name={inputBirthM} onChange={handleInputBirth}>
               <option value="" selected>월</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -343,7 +408,7 @@ function SignUp(props) {
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
-            <input className='birth-day' type="text" id="dd" name="dd" placeholder="일"  />
+            <input className='birth-day' type="text" id="dd" name="dd" placeholder="일"  value={inputBirthD} name={inputBirthD} onChange={handleInputBirth}/>
           </BrithCenter>
           
           <PhoneGroup>
@@ -359,16 +424,16 @@ function SignUp(props) {
               </select>
             </div>
             <div className="input-group-row">
-              <input type="tel" id="phoneNo" className='tel' placeholder="전화번호 입력" />
-              <button type="button" className="btn-verify">인증번호 받기</button>
+              <input type="tel" id="phoneNo" className='tel' placeholder="전화번호 입력" value={inputPhone} name={inputPhone} onChange={handleInputPhone}/>
+              {/*<button type="button" className="btn-verify">인증번호 받기</button>*/}
             </div>
-            <div className="input-group-row">
-              <input type="text" id="authNo" className="authNo" placeholder="인증번호(4자)를 입력하세요" maxlength="4"/>
-            </div>
+            {/*<div className="input-group-row">*/}
+            {/*  <input type="text" id="authNo" className="authNo" placeholder="인증번호(4자)를 입력하세요" maxlength="4"/>*/}
+            {/*</div>*/}
           </PhoneGroup>
 
           <div>
-            <button className='bottomButton'>
+            <button className='bottomButton' onClick={onClickSignUp}>
               회원가입
             </button>
           </div>
@@ -377,5 +442,5 @@ function SignUp(props) {
 		</SignUpWrapper>
 );
 }
-
-export default SignUp;
+//
+// export default SignUp;
