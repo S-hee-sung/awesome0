@@ -2,13 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { useNavigate } from 'react-router';
 import { IoEyeOff, IoEye } from "react-icons/io5";
-
+import axios from "axios";
 import LoginBack from "../images/login-back.jpg";
-
-const User = {
-  email: 'test@example.com',
-  pw: 'test2323@@@'
-}
 
 const LoginWrapper = styled.div`
   position: absolute;
@@ -179,13 +174,42 @@ function Login(props) {
     })
   }
 
-  const onClickConfirmButon = () => {
-    if (email === User.email && pw === User.pw) {
-      alert('로그인에 성공했습니다.')
-    } else {
-      alert('등록되지 않은 회원입니다.')
-    }
-  }
+  const onClickLogin = () => {
+    console.log("click login");
+    console.log("ID : ", email);
+    console.log("PW : ", pw);
+    axios
+      .post("http://localhost:8080/api/login", {
+        ac_id: email,
+        ac_pw: pw,
+      })
+      .then((res) => {
+        console.log(res);
+        console.log("res.data.userId :: ", res.data.userId);
+        console.log("res.data.msg :: ", res.data.msg);
+        if (res.data.ac_id === undefined) {
+          // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
+          console.log("======================", res.data.msg);
+          alert("입력하신 id 가 일치하지 않습니다.");
+        } else if (res.data.ac_id === null) {
+          // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
+          console.log(
+            "======================",
+            "입력하신 비밀번호 가 일치하지 않습니다."
+          );
+          alert("입력하신 비밀번호 가 일치하지 않습니다.");
+        } else if (res.data.ac_id === email) {
+          // id, pw 모두 일치 userId = userId1, msg = undefined
+          console.log("======================", "로그인 성공");
+          sessionStorage.setItem("user_id", email); // sessionStorage에 id를 user_id라는 key 값으로 저장
+          sessionStorage.setItem("name", res.data.name); // sessionStorage에 id를 user_id라는 key 값으로 저장
+        }
+          // 작업 완료 되면 페이지 이동(새로고침)
+          document.location.href = "/";
+      })
+      .catch();
+};
+
 
   useEffect(() => {
     if (emailValid && pwValid) {
@@ -199,12 +223,13 @@ function Login(props) {
   return (
     <LoginWrapper>
       <div className='inner'>
+        {/* 제목 */}
         <TitleWrap onClick={() => navigate("/")}>
           AweSome
         </TitleWrap>
 
         <div className='contentWrap'>
-          
+          {/* 이메일 입력 */}
           <div className='inputTitle'>이메일 주소</div>
           <div className='inputWrap'>
             <input 
@@ -212,6 +237,7 @@ function Login(props) {
               type='text'
               placeholder='test@gmail.com'
               value={email}
+              id={email}
               onChange={handleEmail}
             />
           </div>
@@ -222,7 +248,7 @@ function Login(props) {
               )
             }
           </div>
-
+          {/* 비밀번호 입력 */}
           <div style={{ marginTop: "26px" }} className='inputTitle'>
             비밀번호
           </div>
@@ -249,13 +275,13 @@ function Login(props) {
               )
             }
           </div>
-
+          {/* 로그인 버튼 */}
           <div style={{ marginTop: "40px" }}>
-            <button onClick={onClickConfirmButon} disabled={notAllow} className='bottomButton'>
+            <button onClick={onClickLogin} disabled={notAllow} className='bottomButton'>
               로그인
             </button>
           </div>
-
+          {/* 회원가입 창, 이메일, 비밀번호 찾기 사이트 이동 */}
           <FindWrap>
             <ul>
               <li onClick={() => navigate("/signUp")}>
