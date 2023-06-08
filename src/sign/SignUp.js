@@ -302,6 +302,7 @@ function SignUp(props) {
               className='input'
               placeholder='이메일'
               value={id}
+              id={id}
               onChange={handleId}
             />
           </div>
@@ -323,6 +324,7 @@ function SignUp(props) {
               className='input'
               placeholder='비밀번호'
               value={pw}
+              id={pw}
               onChange={handlePw}
             />
           </div>
@@ -366,11 +368,12 @@ function SignUp(props) {
                 className='input'
                 placeholder='이름 입력'
                 value={name}
+                id={name}
                 onChange={handleReplaceName}
               />
             </div>
             {/* 성별 구분 */}
-            <select className='gender' value={inputGender} name={inputGender} onChange={handleInputGender}>
+            <select className='gender' value={inputGender} id={inputGender} onChange={handleInputGender}>
               <option value="" selected>성별</option>
               <option value="M">남자</option>
               <option value="F">여자</option>
@@ -389,7 +392,7 @@ function SignUp(props) {
             생년월일
           </div>BrithCenter
           <BrithCenter> 
-            <input className='birth-year' type="text" placeholder="년(4자)" maxlength="4" value={inputBirthY} name={inputBirthY} onChange={handleInputBirthY}/>
+            <input className='birth-year' type="text" placeholder="년(4자)" maxlength="4" value={inputBirthY} id={inputBirthY} onChange={handleInputBirthY}/>
             <select className="birth-month" value={inputBirthM} name={inputBirthM} onChange={handleInputBirthM} >
               <option value="" selected>월</option>
               <option value="1">1</option>
@@ -405,7 +408,7 @@ function SignUp(props) {
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
-            <input className='birth-day' type="text"  placeholder="일" value={inputBirthD} name={inputBirthD} onChange={handleInputBirthD}  />
+            <input className='birth-day' type="text"  placeholder="일" value={inputBirthD} id={inputBirthD} onChange={handleInputBirthD}  />
           </BrithCenter>
           
           {/* 휴대전화 & 인증정보 확인 */}
@@ -422,7 +425,7 @@ function SignUp(props) {
               </select>
             </div>
             <div className="input-group-row">
-              <input type="tel" id="phoneNo" className='tel' placeholder="전화번호 입력" value={inputPhone} name={inputPhone} onChange={handleInputPhone} />
+              <input type="tel" className='tel' placeholder="전화번호 입력" value={inputPhone} id={inputPhone} onChange={handleInputPhone} />
               <button type="button" className="btn-verify">인증번호 받기</button>
             </div>
             <div className="input-group-row">
