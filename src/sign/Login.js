@@ -15,7 +15,7 @@ const LoginWrapper = styled.div`
   padding: 140px 0;
   background-image: url(${LoginBack});
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
 
   .inner {
     max-width: 800px;
