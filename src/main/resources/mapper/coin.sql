@@ -1,29 +1,23 @@
-create table account(
-	ac_id varchar2(40 char) primary key,
-	ac_pw varchar2(40 char) not null,
-	ac_name varchar2(20 char) not null,
-	ac_birth varchar2(20 char) not null,
-	ac_phone varchar2(20 char) not null,
-	ac_gender varchar2(20 char) not null,
-    ac_date DATE not null
+CREATE TABLE COINS
+(COINCODE VARCHAR2(100 char) PRIMARY KEY,
+ COINNAME VARCHAR2(100 char));
+
+
+INSERT INTO COINS VALUES('XRP', 'Ripple');
+INSERT INTO COINS VALUES('DOGE', 'DogeCoin');
+
+CREATE TABLE PRICES (
+    PNUM INT PRIMARY KEY,
+    COINCODE VARCHAR2(10 char) NOT NULL,
+    PRICE VARCHAR2(1000 char) not null,
+    VOLUME VARCHAR2(1000 char) not null,
+    "DATE" DATE not null
 );
-select * from account
--- 자동로그인 위한 컬럼 추가 설정
--- 고유 세션키 
 
--- 세션 테스트
-select * from account;
+create sequence prices_seq;
 
-insert into account values('test@naver.com','11111111','jun','971229','010-1111-1111','남',sysdate);
-insert into account values('test2@naver.com','11111111','jun1','971229','010-2222-2222','여',sysdate);
-insert into account values('test3@naver.com','11111111','jun3','971229','010-3333-3333','남',sysdate);
+drop table COINS;
+drop table PRICES;
 
-insert into account values('test4@naver.com','wnsdud12!!','jun3','971229','010-3333-3333','남',sysdate);
-
-insert into account values('jun19975@naver.com','1111','jun6','971229','010-4444-4444','a','b','c','d','n','a.jpg','jun19975@naver.com',sysdate);
-insert into account values('judgemk1@naver.com','1111','jun4','971229','010-4444-4444','a','b','c','d','n','a.jpg');
-delete account where ac_id like '%judgemk1%'
-
-select * from account;
-select * from account where ac_id = 'test4@naver.com';
-select ac_id from account where ac_name = 'jun' and ac_phone ='010-1111-1111';
+select * from COINS;
+select * from PRICES;

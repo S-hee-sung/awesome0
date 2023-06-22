@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oriental.bitcoin.mapper.CoinMapper">
+
+    <insert id="UpDatePrice" parameterType="com.oriental.bitcoin.model.Prices">
+        insert into Prices values(PRICES_SEQ.nextval,#{coincode},#{price},#{volume},sysdate)
+    </insert>
+
+    <select id="getPrice" parameterType="String" resultType="com.oriental.bitcoin.model.Prices">
+        select * from PRICES where coincode = #{coincode}
+    </select>
+</mapper>

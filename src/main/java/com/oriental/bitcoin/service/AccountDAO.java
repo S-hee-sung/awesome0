@@ -93,13 +93,13 @@ public class AccountDAO {
 
 		// dto에 넣기
 		AccountDTO regAccount = new AccountDTO();
-		regAccount.setAc_id(ac_id);
-		regAccount.setAc_pw(ac_pw);
-		regAccount.setAc_name(ac_name);
-		regAccount.setAc_gender(ac_gender);
-		regAccount.setAc_birth(ac_birth);
-		regAccount.setAc_phone(ac_phone);
-	
+//		regAccount.setAc_id(ac_id);
+//		regAccount.setAc_pw(ac_pw);
+//		regAccount.setAc_name(ac_name);
+//		regAccount.setAc_gender(ac_gender);
+//		regAccount.setAc_birth(ac_birth);
+//		regAccount.setAc_phone(ac_phone);
+
 		// 오류 검증
 		if (accountMapper.accountRegDoIt(regAccount)== 1){
 			return 1;
