@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import axios from "axios";
 
 const CandlestickChart = () => {
   const [chartOptions, setChartOptions] = useState({
@@ -278,12 +279,36 @@ const CandlestickChart = () => {
         enabled: true, // 마우스 호버 시 y축 값 툴팁 표시
       },
     },
-  });
+  }
+  );
+
+  const setCoidData = () => {
+    console.log("coin data set");
+
+
+    axios
+        .get("http://localhost:8080/api/coinSet",{}, {
+          // userId: email,
+          // userPw: pw,
+        })
+        .then((res) => {
+          console.log(res);
+          alert("코인 정보 받아오기 성공.");
+ 
+          // 작업 완료 되면 페이지 이동(새로고침)
+          document.location.href = "/exChange";
+        })
+        .catch(function (error){
+          console.log(error);
+          alert("코인 정보 받아오기 실패.");
+        })
+  };
 
   return (
-    <div>
-      <Chart options={chartOptions} series={chartOptions.series} type="candlestick" height={500} />
-    </div>
+      <div>
+        <Chart options={chartOptions} series={chartOptions.series} type="candlestick" height={500} />
+      </div>
+
   );
 };
 
